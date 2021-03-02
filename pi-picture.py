@@ -11,7 +11,9 @@ for i in range(10):
     time.sleep(3)
     now = datetime.datetime.now()
 
+    capture_folder = "/capture"
     capture_time = now.strftime("%Y-%m-%d_%H_%M_%S")
     capture_format = ".jpg"
-    
-    camera.capture('{}{}'.format(capture_time, capture_format))
+
+    camera.capture('{}/{}{}'.format(capture_folder, capture_time, capture_format))
+    print("Capture! : {}/{}{}".format(capture_folder, capture_time, capture_format))
