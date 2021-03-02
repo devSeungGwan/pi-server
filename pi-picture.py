@@ -3,7 +3,6 @@ import time
 import datetime
 import os
 
-
 camera = picamera.PiCamera()
 camera.resolution = (2592, 1944) # (64, 64) ~ (2592, 1944) px
 
