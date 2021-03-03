@@ -18,3 +18,5 @@ def pi_picture():
 
         camera.capture('{}/{}{}'.format(capture_folder, capture_time, capture_format))
         print("Capture! : {}/{}{}".format(capture_folder, capture_time, capture_format))
+    
+    camera.close()
