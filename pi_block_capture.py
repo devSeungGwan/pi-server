@@ -13,10 +13,10 @@ def pi_picture(capture_folder):
         os.makedirs("./{}".format(capture_folder))
     except:
         pass
+    
 
-
-    for i in range(100):
-        time.sleep(3)
+    for i in range(10):
+        time.sleep(1)
         now = datetime.datetime.now()
 
         capture_time = now.strftime("%Y-%m-%d_%H_%M_%S")
@@ -26,3 +26,8 @@ def pi_picture(capture_folder):
         print("Capture! : {}/_{}{}".format(capture_folder, i, capture_format))
     
     camera.close()
+
+    return {
+        "capture folder": capture_folder,
+        "image cnt": 10
+    }
