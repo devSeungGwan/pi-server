@@ -5,11 +5,11 @@ import os
 
 def pi_picture():
     camera = picamera.PiCamera()
-    camera.resolution = (2592, 1944) # (64, 64) ~ (2592, 1944) px
+    camera.resolution = (800, 800) # (64, 64) ~ (2592, 1944) px
     camera.start_preview()
 
     for i in range(10):
-        time.sleep(3)
+        time.sleep(1)
         now = datetime.datetime.now()
 
         capture_folder = "./capture"

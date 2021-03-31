@@ -4,13 +4,11 @@ import datetime
 import os
 import sys
 
-def pi_picture():
+def pi_picture(capture_folder):
     camera = picamera.PiCamera()
     camera.resolution = (800, 800) # (64, 64) ~ (2592, 1944) px
     camera.start_preview()
     
-    capture_folder = sys.argv[2]
-
     try:
         os.makedirs("./{}".format(capture_folder))
     except:
