@@ -8,7 +8,7 @@ api = Api(app)
 @api.route('/capture')
 class Capture(Resource):
     def post(self):
-        capture_folder = request.json.get('capture_folder')
+        capture_folder = request.json.post('capture_folder')
         fin = pi_picture(capture_folder)
     
         return fin

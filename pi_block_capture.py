@@ -31,3 +31,6 @@ def pi_picture(capture_folder):
         "capture folder": capture_folder,
         "image cnt": 10
     }
+
+if __name__ == "__main__":
+    print(pi_picture("Test")) 
