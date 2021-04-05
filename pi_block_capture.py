@@ -4,33 +4,41 @@ import datetime
 import os
 import sys
 
-def pi_picture(capture_folder):
+def pi_picture(save_folder):
     camera = picamera.PiCamera()
     camera.resolution = (800, 800) # (64, 64) ~ (2592, 1944) px
     camera.start_preview()
     
+    now = datetime.datetime.now()
+    start_time = now.strftime("%Y-%m-%d_%H_%M_%S")
+
     try:
-        os.makedirs("./{}".format(capture_folder))
+        os.makedirs("./{}".format(save_folder))
     except:
         pass
     
+    log = {
+        "save_folder": save_folder,
+        "start_time": start_time
+    }
 
     for i in range(10):
-        time.sleep(1)
+        time.sleep(4)
         now = datetime.datetime.now()
 
         capture_time = now.strftime("%Y-%m-%d_%H_%M_%S")
         capture_format = ".jpg"
-
-        camera.capture('{}/_{}{}'.format(capture_folder, i, capture_format))
-        print("Capture! : {}/_{}{}".format(capture_folder, i, capture_format))
+        file_name = '{}/_{}{}'.format(save_folder, capture_time, capture_format)
+        camera.capture(file_name)
+        log[i+1] = {
+            "file name": file_name,
+            "capture time": capture_time,
+        }
+        print("Capture! : {}/_{}{}".format(save_folder, i, capture_format))
     
     camera.close()
 
-    return {
-        "capture folder": capture_folder,
-        "image cnt": 10
-    }
+    return log
 
 if __name__ == "__main__":
-    print(pi_picture("Test")) 
+    print(pi_picture(sys.argv[1])) 
