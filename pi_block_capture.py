@@ -3,6 +3,7 @@ import time
 import datetime
 import os
 import sys
+from pprint import pprint
 
 def pi_picture(save_folder):
     camera = picamera.PiCamera()
@@ -28,17 +29,17 @@ def pi_picture(save_folder):
 
         capture_time = now.strftime("%Y-%m-%d_%H_%M_%S")
         capture_format = ".jpg"
-        file_name = '{}/_{}{}'.format(save_folder, capture_time, capture_format)
+        file_name = './{}/_{}{}'.format(save_folder, capture_time, capture_format)
         camera.capture(file_name)
         log[i+1] = {
             "file name": file_name,
             "capture time": capture_time,
         }
-        print("Capture! : {}/_{}{}".format(save_folder, i, capture_format))
+        pprint("Capture! : ./{}/_{}{}".format(save_folder, capture_time, capture_format))
     
     camera.close()
 
     return log
 
 if __name__ == "__main__":
-    print(pi_picture(sys.argv[1])) 
+    pprint(pi_picture(sys.argv[1])) 
