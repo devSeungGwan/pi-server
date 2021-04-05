@@ -5,9 +5,9 @@ import os
 import sys
 from pprint import pprint
 
-def pi_picture(save_folder):
+def pi_picture(save_folder: str, num_of_capture: int, width: int, height: int) -> str:
     camera = picamera.PiCamera()
-    camera.resolution = (800, 800) # (64, 64) ~ (2592, 1944) px
+    camera.resolution = (width, height) # (64, 64) ~ (2592, 1944) px
     camera.start_preview()
     
     now = datetime.datetime.now()
@@ -20,10 +20,12 @@ def pi_picture(save_folder):
     
     log = {
         "save_folder": save_folder,
-        "start_time": start_time
+        "start_time": start_time,
+        "num_of_capture": num_of_capture,
+        "px": camera.resolution
     }
 
-    for i in range(10):
+    for i in range(num_of_capture):
         time.sleep(4)
         now = datetime.datetime.now()
 
@@ -42,4 +44,9 @@ def pi_picture(save_folder):
     return log
 
 if __name__ == "__main__":
-    pprint(pi_picture(sys.argv[1])) 
+    save_folder = sys.argv[1]
+    num_of_folder = sys.argv[2]
+    width = sys.argv[3]
+    height = sys.argv[4]
+
+    pprint(pi_picture(save_folder, num_of_folder, width, height))
