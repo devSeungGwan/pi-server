@@ -1,9 +1,10 @@
-import cv2
-cap = cv2.VideoCapture(0)
+from picamera import PiCamera
+from time import sleep
 
-while cap.isOpened():
-  ret, img = cap.read()
-  if ret:
-    cv2.imshow('test', img)
-    if cv2.waitkey(1) & 0xFF == 27: # esc
-      break
+camera = PiCamera()
+
+camera.start_preview()
+camera.start_recording('/home/pi/video.h264')
+sleep(10)
+camera.stop_recording()
+camera.stop_preview()
