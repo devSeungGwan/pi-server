@@ -48,9 +48,9 @@ def pi_picture(save_folder: str, num_of_capture: int, width: int, height: int) -
 
 
 if __name__ == "__main__":
-    save_folder = sys.argv[1]
-    num_of_folder = sys.argv[2]
-    width = sys.argv[3]
-    height = sys.argv[4]
+    save_folder = str(sys.argv[1])
+    num_of_folder = int(sys.argv[2])
+    width = int(sys.argv[3])
+    height = int(sys.argv[4])
 
     pprint(pi_picture(save_folder, num_of_folder, width, height))
