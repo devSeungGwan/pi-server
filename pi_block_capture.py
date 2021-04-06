@@ -5,11 +5,12 @@ import os
 import sys
 from pprint import pprint
 
+
 def pi_picture(save_folder: str, num_of_capture: int, width: int, height: int) -> str:
     camera = picamera.PiCamera()
-    camera.resolution = (width, height) # (64, 64) ~ (2592, 1944) px
+    camera.resolution = (width, height)  # (64, 64) ~ (2592, 1944) px
     camera.start_preview()
-    
+
     now = datetime.datetime.now()
     start_time = now.strftime("%Y-%m-%d_%H_%M_%S")
 
@@ -17,12 +18,12 @@ def pi_picture(save_folder: str, num_of_capture: int, width: int, height: int) -
         os.makedirs("./{}".format(save_folder))
     except:
         pass
-    
+
     log = {
         "save_folder": save_folder,
         "start_time": start_time,
         "num_of_capture": num_of_capture,
-        "px": camera.resolution
+        "px": camera.resolution,
     }
 
     for i in range(num_of_capture):
@@ -31,17 +32,20 @@ def pi_picture(save_folder: str, num_of_capture: int, width: int, height: int) -
 
         capture_time = now.strftime("%Y-%m-%d_%H_%M_%S")
         capture_format = ".jpg"
-        file_name = './{}/_{}{}'.format(save_folder, capture_time, capture_format)
+        file_name = "./{}/_{}{}".format(save_folder, capture_time, capture_format)
         camera.capture(file_name)
-        log[i+1] = {
+        log[i + 1] = {
             "file name": file_name,
             "capture time": capture_time,
         }
-        pprint("Capture! : ./{}/_{}{}".format(save_folder, capture_time, capture_format))
-    
+        pprint(
+            "Capture! : ./{}/_{}{}".format(save_folder, capture_time, capture_format)
+        )
+
     camera.close()
 
     return log
+
 
 if __name__ == "__main__":
     save_folder = sys.argv[1]
