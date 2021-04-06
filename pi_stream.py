@@ -2,7 +2,8 @@ import picamera
 import time
 
 camera = picamera.PiCamera()
-camera.resolution = (2592, 1944) # (64, 64) ~ (2592, 1944) px
+camera.resolution = (2592, 1944)
 
-time.sleep(3)
-camera.capture('snapshot.jpg')
+camera.start_preview()
+time.sleep(100)
+camera.close()
