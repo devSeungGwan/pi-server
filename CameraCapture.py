@@ -6,7 +6,7 @@ import sys
 from pprint import pprint
 
 
-def pi_picture(save_folder: str, num_of_capture: int, width: int, height: int) -> str:
+def camera_caputure(save_folder: str, num_of_capture: int, width: int, height: int) -> str:
     camera = picamera.PiCamera()
     camera.resolution = (width, height)  # (64, 64) ~ (2592, 1944) px
     camera.start_preview()
@@ -53,4 +53,4 @@ if __name__ == "__main__":
     width = int(sys.argv[3])
     height = int(sys.argv[4])
 
-    pprint(pi_picture(save_folder, num_of_folder, width, height))
+    pprint(camera_caputure(save_folder, num_of_folder, width, height))
