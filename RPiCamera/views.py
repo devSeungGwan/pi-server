@@ -1,9 +1,11 @@
 from rest_framework import viewsets
-from .serializers import rpi_capture_serializer
+from .serializers import capture_serializer
 from .models import rpi_parameter
 from rest_framework import permissions
 
-class rpi_capture_view(viewsets.ModelViewSet):
+class capture_viewset(viewsets.ModelViewSet):
     queryset = rpi_parameter.objects.all()
-    serializer_class = rpi_capture_serializer
+    serializer_class = capture_serializer
     permission_classes = (permissions.IsAuthenticated, )
+
+    

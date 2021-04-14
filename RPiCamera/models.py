@@ -7,4 +7,4 @@ class rpi_parameter(models.Model):
     width = models.IntegerField()           # 이미지 가로 넓이
     height = models.IntegerField()          # 이미지 세로 넓이
     start_time = models.DateTimeField()     # 생성 시작 시간
-    end_time = models.DateTimeField()       # 생성 종료 시간 
+    end_time = models.DateTimeField()       # 생성 종료 시간
