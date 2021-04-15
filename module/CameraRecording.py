@@ -1,5 +1,6 @@
 from picamera import PiCamera
 from time import sleep
+import datetime
 import sys
 import os
 
@@ -15,10 +16,12 @@ def camera_recording(save_folder: str, record_time: int, width: int, height: int
         os.makedirs("./{}".format(save_folder))
     except:
         pass
-
+    
+    now = datetime.datetime.now()
+    capture_time = now.strftime("%Y-%m-%d_%H_%M_%S")
 
     camera.start_preview()
-    camera.start_recording("./{}/video.h264".format(save_folder))
+    camera.start_recording("./{}/{}.h264".format(save_folder, capture_time))
     sleep(record_time)
     camera.stop_recording()
     camera.stop_preview()
