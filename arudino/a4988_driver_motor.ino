@@ -69,16 +69,16 @@ void loop(){
   */
   if(Serial.available()){
     // 라즈베리파이에서 온 명령 값을 읽는다.
-    char task = Serial.read();
+    int task = (int) Serial.read();
 
     // 명령에 따른 행동을 취한다.
-    if(task == "a"){ // 3D 프린트 회전
+    if(task == 1){ // 3D 프린트 회전
         NEMA_motor_move(500,0);
     }
-    else if(task == "b"){ // 기운데 모터 회전
+    else if(task == 2){ // 기운데 모터 회전
         planeMotor_move();
     }
-    else if(task == "c"){ // 원위치 이동
+    else if(task == 3){ // 원위치 이동
         planeMotor_move();
         NEMA_motor_move(2500,1);
     }

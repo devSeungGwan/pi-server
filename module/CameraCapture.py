@@ -66,7 +66,7 @@ def openSerial(port, baudrate=9600, bytesize=serial.EIGHTBITS, parity=serial.PAR
 
 def MotorContorl():
     ser = openSerial("/dev/ttyUSB0")
-    ser.write(b"a")
+    ser.write("1")
 
 
 if __name__ == "__main__":
