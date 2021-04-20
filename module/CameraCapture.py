@@ -67,9 +67,11 @@ def openSerial(port, baudrate=9600, bytesize=serial.EIGHTBITS, parity=serial.PAR
 def MotorContorl():
     ser = openSerial("/dev/ttyUSB0")
     # ser = openSerial("")
-    ser.write("1".encode('utf-8'))
+    ser.write("2".encode('utf-8'))
     
-    print(ser.readline())
+    result_code = ser.readline()
+
+    print(result_code)
 
 if __name__ == "__main__":
     # save_folder = str(sys.argv[1])
