@@ -1,8 +1,11 @@
 import serial
 
-def MotorContorl():
-    ser = serial.Serial("/dev/ttyUSB0",9600)
-    ser.write("2".encode('utf-8'))
+# def MotorContorl():
+#     ser = serial.Serial("/dev/ttyUSB0",115200)
+#     ser.write("2".encode('utf-8'))
 
 if __name__ == "__main__":
-    MotorContorl()
+    ser = serial.Serial("/dev/ttyUSB0",115200)
+    if ser.readable():
+        res = ser.readline()
+        print(res.decode()[:len(res)-1])
