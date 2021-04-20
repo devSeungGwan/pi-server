@@ -49,9 +49,6 @@ void loop(){
   btnLeft_bool = digitalRead(left_button_pin); 
   btnRight_bool = digitalRead(right_button_pin); 
 
-  // Serial.println(btnLeft_bool);
-  // Serial.println(btnRight_bool);
-
   // 왼쪽 이동 버튼을 누른 경우
   if(btnLeft_bool == LOW){
     NEMA_btn_move(0);
@@ -63,31 +60,6 @@ void loop(){
   }
 
   startButton_bool = digitalRead(startButton);
-
-  /*
-  라즈베리파이에서 신호가 올 때 모터가 회전하는 코드
-  */
-  if(Serial.available()){
-    // 라즈베리파이에서 온 명령 값을 읽는다.
-    int task = (int) Serial.read();
-
-    // 명령에 따른 행동을 취한다.
-    if(task == 1){ // 3D 프린트 회전
-        NEMA_motor_move(500,0);
-    }
-    else if(task == 2){ // 기운데 모터 회전
-        planeMotor_move();
-    }
-    else if(task == 3){ // 원위치 이동
-        planeMotor_move();
-        NEMA_motor_move(2500,1);
-    }
-    
-    // 행동을 완료한 결과 값을 라즈베리파이에 전달한다.
-    Serial.println(task);
-  }
-  
-
 
   /*
   시작 버튼을 눌려 동작하는 아두이노 코드
@@ -112,6 +84,8 @@ void loop(){
 void planeMotor_move(){ 
   for(int i=0;i<4;i++){
     block_motor.step(stepsNum/4);  // steps, 2048로 두면 정회전 한바퀴
+    delay(500);
+    Serial.println("Capture");
     delay(1000);
   }
 }
