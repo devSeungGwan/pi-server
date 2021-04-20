@@ -1,4 +1,3 @@
-import serial
 
 # def MotorContorl():
 #     ser = serial.Serial("/dev/ttyUSB0",115200)
@@ -9,4 +8,4 @@ if __name__ == "__main__":
     while True:
         if ser.readable():
             res = ser.readline()
-            print(res.decode())
+            print(res.decode().strip())

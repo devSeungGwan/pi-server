@@ -1,4 +1,6 @@
 import picamera
+import serial
+
 import time
 import datetime
 import os
@@ -9,7 +11,6 @@ from pprint import pprint
 def camera_caputure(save_folder: str, num_of_capture: int, width: int, height: int) -> str:
     camera = picamera.PiCamera()
     camera.resolution = (width, height)  # (64, 64) ~ (2592, 1944) px
-    camera.start_preview()
 
     now = datetime.datetime.now()
     start_time = now.strftime("%Y-%m-%d_%H_%M_%S")
@@ -47,9 +48,15 @@ def camera_caputure(save_folder: str, num_of_capture: int, width: int, height: i
     return log
 
 if __name__ == "__main__":
-    save_folder = str(sys.argv[1])
-    num_of_folder = int(sys.argv[2])
-    width = int(sys.argv[3])
-    height = int(sys.argv[4])
+    # save_folder = str(sys.argv[1])
+    # num_of_folder = int(sys.argv[2])
+    # width = int(sys.argv[3])
+    # height = int(sys.argv[4])
 
-    pprint(camera_caputure(save_folder, num_of_folder, width, height))
+    ser = serial.Serial("/dev/ttyUSB0",9600)
+    while True:
+        if ser.readable():
+            res = ser.readline()
+            res = res.decode().strip()
+
+            print(res)
