@@ -6,6 +6,7 @@ import serial
 
 if __name__ == "__main__":
     ser = serial.Serial("/dev/ttyUSB0",9600)
-    if ser.readable():
-        res = ser.readline()
-        print(res.decode())
+    while True:
+        if ser.readable():
+            res = ser.readline()
+            print(res.decode())
