@@ -65,7 +65,7 @@ def openSerial(port, baudrate=9600, bytesize=serial.EIGHTBITS, parity=serial.PAR
 
 
 def MotorContorl():
-    ser = openSerial("com9")
+    ser = openSerial("/dev/ttyACM0")
     ser.write(b"a")
 
 
