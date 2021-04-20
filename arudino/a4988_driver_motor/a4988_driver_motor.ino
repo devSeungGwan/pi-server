@@ -1,4 +1,3 @@
-
 #define SWITCH 12
 
 #define dir 2
@@ -66,16 +65,17 @@ void loop(){
   */
   // 시작 버튼을 누른 경우
   if(startButton_bool == LOW){
-
+    Serial.println("START");
     // 촬영
     for(int i=0;i<5;i++){
       planeMotor_move();
-      NEMA_motor_move(500,0);
+      NEMA_motor_move(500,1);
     }
 
     // 원위치 이동
     planeMotor_move();
-    NEMA_motor_move(2500,1);
+    NEMA_motor_move(2500,0);
+    Serial.println("END");
   }
 }
 
@@ -85,7 +85,7 @@ void planeMotor_move(){
   for(int i=0;i<4;i++){
     block_motor.step(stepsNum/4);  // steps, 2048로 두면 정회전 한바퀴
     delay(500);
-    Serial.println("Capture");
+    Serial.println("CAPTURE");
     delay(1000);
   }
 }
