@@ -52,6 +52,9 @@ def camera_capture(width: int, height: int, ser) -> str:
                 )  
                 
             elif(res == "END"):
+                now = datetime.datetime.now()
+                capture_time = now.strftime("%Y-%m-%d_%H_%M_%S")
+                print("Capture End: {}".format(capture_time))
                 break     
 
     camera.close()
@@ -68,5 +71,9 @@ if __name__ == "__main__":
             res = ser.readline()
             res = res.decode().strip()
 
+            now = datetime.datetime.now()
+            start_time = now.strftime("%Y-%m-%d_%H_%M_%S")
+
             if(res == "START"):
+                print("Capture Start: {}".format(start_time))
                 camera_capture(width, height, ser)
