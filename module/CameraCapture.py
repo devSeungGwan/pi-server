@@ -54,9 +54,9 @@ def camera_capture(width: int, height: int, ser) -> str:
             elif(res == "END"):
                 now = datetime.datetime.now()
                 capture_time = now.strftime("%Y-%m-%d_%H_%M_%S")
-                print("Capture End: {}".format(capture_time))
                 break     
-
+    
+    print("Capture End: {}".format())
     camera.close()
 
     return log
