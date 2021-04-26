@@ -14,7 +14,7 @@ def camera_capture(config: dict, ser) -> str:
 
     capture_log = dict()
     capture_log["capture_config"] = config
-    save_folder = os.path.join(config["root_folder"], config["block_name"])
+    save_folder = config["capture_folder"]
 
     ser_capture = 1
 
@@ -27,7 +27,7 @@ def camera_capture(config: dict, ser) -> str:
                 now = datetime.datetime.now()
                 capture_time = now.strftime("%Y-%m-%d_%H_%M_%S")
                 capture_format = ".jpg"
-                file_name = "./{}/_{}{}".format(
+                file_name = "{}/_{}{}".format(
                     save_folder, capture_time, capture_format
                 )
                 camera.capture(file_name)
@@ -40,7 +40,7 @@ def camera_capture(config: dict, ser) -> str:
                 ser_capture += 1
 
                 pprint(
-                    "Capture! : ./{}/_{}{}".format(
+                    "📸 Capture! : ./{}/_{}{}".format(
                         save_folder, capture_time, capture_format
                     )
                 )

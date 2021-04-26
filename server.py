@@ -4,7 +4,8 @@ from module.config import block_config
 import serial
 
 if __name__ == "__main__":
-    print("🚗 running server...")
+    print("🚗 Running RPi Camera Capture Server...")
+    print("👆 Please click Arduino Start Button")
 
     config = block_config()
     config_data = config.get_data()
@@ -25,7 +26,7 @@ if __name__ == "__main__":
                 print(capture_time(0))
 
                 # 폴더 생성
-                folder = make_folder(
+                config_data["capture_config"]["capture_folder"] = make_folder(
                     config_data["capture_config"]["root_folder"],
                     config_data["capture_config"]["block_name"],
                 )

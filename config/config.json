@@ -3,6 +3,7 @@
     {
         "block_name": "F11S",
         "root_folder": "./capture",
+        "capture_folder": "",
         "width": 800,
         "height": 800
     },
