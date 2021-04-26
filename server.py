@@ -15,11 +15,14 @@ if __name__ == "__main__":
     )
 
     while True:
-        print("1. 👆 Arduino Start Button")
-        print("2. ⛴ Change Block Name")
+        print("1. 👆 Click Start Button")
+        print("2. 🔄 Change Block Name")
+        print("3. 🖐 Exit")
         select = input("Select: ")
 
+        # 블록 촬영
         if select == "1":
+            print("👆 Please Click Start Button...")
             while True:
                 # 아두이노에서 촬영 신호가 왔을 경우,
                 if ser.readable():
@@ -52,4 +55,9 @@ if __name__ == "__main__":
         elif select == "2":
             block_name = input("Enter Block Name: ")
             config_data["capture_config"]["block_name"] = block_name
-            print("⛴ Change Block: {}\n".format(block_name))
+            print("🔄 Change Block: {}\n".format(block_name))
+
+        # 종료
+        elif select == "3":
+            print("🖐 Good Bye")
+            exit()
