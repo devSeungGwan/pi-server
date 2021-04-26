@@ -8,8 +8,8 @@ from pprint import pprint
 def camera_capture(config: dict, ser) -> str:
     camera = picamera.PiCamera()
     camera.resolution = (
-        int(config["width"]),
-        int(config["height"]),
+        config["width"],
+        config["height"],
     )  # (64, 64) ~ (2592, 1944) px
 
     capture_log = dict()
@@ -27,9 +27,7 @@ def camera_capture(config: dict, ser) -> str:
                 now = datetime.datetime.now()
                 capture_time = now.strftime("%Y-%m-%d_%H_%M_%S")
                 capture_format = ".jpg"
-                file_name = "{}/_{}{}".format(
-                    save_folder, capture_time, capture_format
-                )
+                file_name = os.path.join(save_folder, "{}.{}".format(capture_time, capture_format))
                 camera.capture(file_name)
 
                 capture_log[ser_capture] = {

@@ -17,7 +17,7 @@ def make_folder(root_folder: str, block_name: str, itr=1):
     except:
         make_folder(root_folder, block_name, itr+1)
 
-    return res_code
+    return folder
 
 
 def capture_time(code: int):
