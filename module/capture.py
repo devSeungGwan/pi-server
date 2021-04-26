@@ -26,7 +26,7 @@ def camera_capture(config: dict, ser) -> str:
             if res == "CAPTURE":
                 now = datetime.datetime.now()
                 capture_time = now.strftime("%Y-%m-%d_%H_%M_%S")
-                capture_format = ".jpg"
+                capture_format = "jpg"
                 file_name = os.path.join(save_folder, "{}.{}".format(capture_time, capture_format))
                 camera.capture(file_name)
 
