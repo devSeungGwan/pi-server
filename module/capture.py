@@ -36,7 +36,7 @@ def camera_capture(config: dict, ser) -> str:
                 }
 
                 ser_capture += 1
-                pprint("📸 Capture! : {}".format(file_name))
+                print("📸 Capture! : {}".format(file_name))
 
             elif res == "END":
                 now = datetime.datetime.now()

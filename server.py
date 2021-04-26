@@ -39,4 +39,5 @@ if __name__ == "__main__":
 
                 # 촬영 종료 시간 체크
                 print(capture_time(1))
+                print("\n")
         

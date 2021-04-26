@@ -3,19 +3,19 @@ import datetime
 import json
 
 
-def make_folder(root_folder: str, block_name: str, itr=1):
+def make_folder(root_folder: str, block_name: str):
     res_code = 0
-    folder = "{}_{}".format(os.path.join(root_folder, block_name), itr)
+    folder = os.path.join(root_folder, block_name)
 
     # 폴더 생성
     try:
         os.makedirs(folder)
-        print("📃 Create folder: {}_{}".format(folder, itr))
+        print("📃 Create folder: {}".format(folder))
         res_code = 1
 
     # 폴더가 이미 존재하는 경우
     except:
-        make_folder(root_folder, block_name, itr+1)
+        print("📃 Folder is already exist: {}".format(folder))
 
     return folder
 
@@ -29,4 +29,6 @@ def capture_time(code: int):
 def save_log(log: dict):
     now = datetime.datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
     with open("{}.json".format(now), "w", encoding="utf-8") as json_file:
+        print("💾 Saved log file: {}.json".format(now))
         json.dump(log, json_file)
+

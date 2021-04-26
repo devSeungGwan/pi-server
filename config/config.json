@@ -1,7 +1,7 @@
 {
     "capture_config": 
     {
-        "block_name": "F11S",
+        "block_name": "F24P",
         "root_folder": "./capture",
         "capture_folder": "",
         "width": 800,
