@@ -5,14 +5,16 @@ import os
 from pprint import pprint
 
 
-def camera_capture(save_folder: str, width: int, height: int, ser) -> str:
+def camera_capture(config: dict, ser) -> str:
     camera = picamera.PiCamera()
-    camera.resolution = (width, height)  # (64, 64) ~ (2592, 1944) px
+    camera.resolution = (
+        config["width"],
+        config["height"],
+    )  # (64, 64) ~ (2592, 1944) px
 
-    log = {
-        "save_folder": save_folder,
-        "px": camera.resolution,
-    }
+    capture_log = dict()
+    capture_log["capture_config"] = config
+    save_folder = os.path.join(config["root_folder"], config["block_name"])
 
     ser_capture = 1
 
@@ -30,7 +32,7 @@ def camera_capture(save_folder: str, width: int, height: int, ser) -> str:
                 )
                 camera.capture(file_name)
 
-                log[ser_capture] = {
+                capture_log[ser_capture] = {
                     "file name": file_name,
                     "capture time": capture_time,
                 }
@@ -50,4 +52,4 @@ def camera_capture(save_folder: str, width: int, height: int, ser) -> str:
 
     camera.close()
 
-    return log
+    return capture_log

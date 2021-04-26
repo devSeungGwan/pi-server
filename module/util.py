@@ -1,12 +1,11 @@
 import os
 import datetime
+import json
 
 
-def make_folder():
-    now = datetime.datetime.now()
-    start_time = now.strftime("%Y-%m-%d_%H_%M_%S")
-    folder = "./{}".format(start_time)
+def make_folder(root_folder: str, block_name: str):
     res_code = 0
+    folder = os.path.join(root_folder, block_name)
 
     # 폴더 생성
     try:
@@ -23,6 +22,12 @@ def make_folder():
 
 
 def capture_time(code: int):
-    now = datetime.datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
+    now = datetime.datetime.now().strftime("%Y-%m-%d, %H:%M:%S")
     sep = {0: "start", 1: "end"}
     return "Capture {}: {}".format(sep[code], now)
+
+
+def save_log(log: dict):
+    now = datetime.datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
+    with open("{}.json".format(now), "w", encoding="utf-8") as json_file:
+        json.dump(log, json_file)

@@ -4,7 +4,10 @@ import datetime
 import sys
 import os
 
-def camera_recording(save_folder: str, record_time: int, width: int, height: int, frame_rate: int):
+
+def camera_recording(
+    save_folder: str, record_time: int, width: int, height: int, frame_rate: int
+):
     camera = PiCamera()
 
     # camera parameter setting
@@ -16,7 +19,7 @@ def camera_recording(save_folder: str, record_time: int, width: int, height: int
         os.makedirs("./{}".format(save_folder))
     except:
         pass
-    
+
     now = datetime.datetime.now()
     capture_time = now.strftime("%Y-%m-%d_%H_%M_%S")
 
