@@ -5,11 +5,11 @@ import json
 
 def make_folder(root_folder: str, block_name: str, itr=1):
     res_code = 0
-    folder = os.path.join(root_folder, block_name)
+    folder = "{}_{}".format(os.path.join(root_folder, block_name), itr)
 
     # 폴더 생성
     try:
-        os.makedirs("{}_{}".format(folder, itr))
+        os.makedirs(folder)
         print("📃 Create folder: {}_{}".format(folder, itr))
         res_code = 1
 
