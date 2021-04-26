@@ -20,6 +20,7 @@ if __name__ == "__main__":
         print("2. 🔄 Change Block Name")
         print("3. 🖐 Exit")
         select = input("Select: ")
+        print("\n")
 
         # 블록 촬영
         if select == "1":
