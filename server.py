@@ -4,7 +4,7 @@ from module.config import block_config
 import serial
 
 if __name__ == "__main__":
-    print("🚗 Running RPi Camera Capture Server...")
+    print("🚗 Running RPi Camera Capture Server...\n")
 
     config = block_config()
     config_data = config.get_data()
@@ -15,6 +15,7 @@ if __name__ == "__main__":
     )
 
     while True:
+        print("📖 Select Memu")
         print("1. 👆 Click Start Button")
         print("2. 🔄 Change Block Name")
         print("3. 🖐 Exit")
@@ -59,5 +60,5 @@ if __name__ == "__main__":
 
         # 종료
         elif select == "3":
-            print("🖐 Good Bye")
+            print("🖐 Good Bye!!\n")
             exit()
