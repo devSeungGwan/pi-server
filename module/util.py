@@ -10,7 +10,7 @@ def make_folder(root_folder: str, block_name: str, itr=1):
     # 폴더 생성
     try:
         os.makedirs("{}_{}".format(folder, itr))
-        print("📃 Create folder: {}".format(folder))
+        print("📃 Create folder: {}_{}".format(folder, itr))
         res_code = 1
 
     # 폴더가 이미 존재하는 경우

@@ -8,8 +8,8 @@ from pprint import pprint
 def camera_capture(config: dict, ser) -> str:
     camera = picamera.PiCamera()
     camera.resolution = (
-        config["width"],
-        config["height"],
+        int(config["width"]),
+        int(config["height"]),
     )  # (64, 64) ~ (2592, 1944) px
 
     capture_log = dict()
