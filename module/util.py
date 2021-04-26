@@ -28,7 +28,7 @@ def capture_time(code: int):
 
 def save_log(log: dict):
     now = datetime.datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
-    with open("{}.json".format(now), "w", encoding="utf-8") as json_file:
-        print("💾 Saved log file: {}.json".format(now))
+    with open("./log/{}.json".format(now), "w", encoding="utf-8") as json_file:
+        print("💾 Saved log file: ./log/{}.json".format(now))
         json.dump(log, json_file)
 
