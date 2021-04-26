@@ -5,7 +5,6 @@ import serial
 
 if __name__ == "__main__":
     print("🚗 Running RPi Camera Capture Server...")
-    print("👆 Please click Arduino Start Button")
 
     config = block_config()
     config_data = config.get_data()
@@ -16,28 +15,41 @@ if __name__ == "__main__":
     )
 
     while True:
-        # 아두이노에서 촬영 신호가 왔을 경우,
-        if ser.readable():
-            res = ser.readline()
-            res = res.decode().strip()
+        print("1. 👆 Arduino Start Button")
+        print("2. ⛴ Change Block Name")
+        select = input("Select: ")
 
-            if res == "START":
-                # 촬영 시작 시간 체크
-                print(capture_time(0))
+        if select == "1":
+            while True:
+                # 아두이노에서 촬영 신호가 왔을 경우,
+                if ser.readable():
+                    res = ser.readline()
+                    res = res.decode().strip()
 
-                # 폴더 생성
-                config_data["capture_config"]["capture_folder"] = make_folder(
-                    config_data["capture_config"]["root_folder"],
-                    config_data["capture_config"]["block_name"],
-                )
+                    if res == "START":
+                        # 촬영 시작 시간 체크
+                        print(capture_time(0))
 
-                # 카메라 캡쳐
-                log = camera_capture(config_data["capture_config"], ser)
+                        # 폴더 생성
+                        config_data["capture_config"]["capture_folder"] = make_folder(
+                            config_data["capture_config"]["root_folder"],
+                            config_data["capture_config"]["block_name"],
+                        )
 
-                # 로그 저장
-                save_log(log)
+                        # 카메라 캡쳐
+                        log = camera_capture(config_data["capture_config"], ser)
 
-                # 촬영 종료 시간 체크
-                print(capture_time(1))
-                print("\n")
-        
+                        # 로그 저장
+                        save_log(log)
+
+                        # 촬영 종료 시간 체크
+                        print(capture_time(1))
+                        print("\n")
+                    
+                    break
+
+        # 블록 이름 변경
+        elif select == "2":
+            block_name = input("Enter Block Name: ")
+            config_data["capture_config"]["block_name"] = block_name
+            print("⛴ Change Block: {}\n".format(block_name))

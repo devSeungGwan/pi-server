@@ -83,7 +83,7 @@ void loop(){
 //가운데 모터 회전
 void planeMotor_move(){ 
   for(int i=0;i<8;i++){
-    block_motor.step(stepsNum/4);  // steps, 2048로 두면 정회전 한바퀴
+    block_motor.step(stepsNum/8);  // steps, 2048로 두면 정회전 한바퀴
     delay(500);
     Serial.println("CAPTURE");
     delay(1000);
