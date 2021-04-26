@@ -24,7 +24,7 @@ def make_folder(root_folder: str, block_name: str):
 def capture_time(code: int):
     now = datetime.datetime.now().strftime("%Y-%m-%d, %H:%M:%S")
     sep = {0: "start", 1: "end"}
-    return "Capture {}: {}".format(sep[code], now)
+    return "👌 Capture {}: {}".format(sep[code], now)
 
 
 def save_log(log: dict):

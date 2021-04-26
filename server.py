@@ -4,6 +4,8 @@ from module.config import block_config
 import serial
 
 if __name__ == "__main__":
+    print("🚗 running server...")
+
     config = block_config()
     config_data = config.get_data()
 
@@ -36,3 +38,4 @@ if __name__ == "__main__":
 
                 # 촬영 종료 시간 체크
                 print(capture_time(1))
+        
