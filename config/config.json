@@ -1,0 +1,14 @@
+{
+    "capture_config": 
+    {
+        "block_name": "F11S",
+        "width": 800,
+        "height": 800
+    },
+    "serial_config":
+    {
+        "serial_name": "/dev/ttyUSB0",
+        "serial_port": 9600
+    }
+    
+}

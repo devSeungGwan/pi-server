@@ -23,13 +23,3 @@ def camera_recording(save_folder: str, record_time: int, width: int, height: int
     camera.start_recording("./{}/{}.h264".format(save_folder, capture_time))
     sleep(record_time)
     camera.stop_recording()
-    
-
-if __name__ == "__main__":
-    save_folder = sys.argv[1]
-    record_time = int(sys.argv[2])
-    width = int(sys.argv[3])
-    height = int(sys.argv[4])
-    frame_rate = int(sys.argv[5])
-
-    camera_recording(save_folder, record_time, width, height, frame_rate)
