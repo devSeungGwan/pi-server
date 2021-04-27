@@ -74,23 +74,23 @@ if __name__ == "__main__":
                 print("Change folder name: {}\n".format(folder_name))
 
             elif cfg_select == "2":
-                width = input("\nChange width")
-                if(~width.isdigit):
+                width = input("\nChange width: ")
+                if(~width.isdigit()):
                     print("올바른 값을 입력하지 않았습니다. 처음으로 돌아갑니다.")
                 else:
                     config.set_data("capture_config", "width", int(width))
                     print("Change width: {}\n".format(int(width)))
 
             elif cfg_select == "3":
-                height = input("\nChange height")
-                if(~height.isdigit):
+                height = input("\nChange height: ")
+                if(~height.isdigit()):
                     print("올바른 값을 입력하지 않았습니다. 처음으로 돌아갑니다.")
                 else:
                     config.set_data("capture_config", "height", int(height))
                     print("Change height: {}\n".format(int(height)))
 
             elif cfg_select == "4":
-                pass
+                print("\n")
 
         # 종료
         elif select == "4":
