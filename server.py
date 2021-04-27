@@ -75,7 +75,7 @@ if __name__ == "__main__":
 
             elif cfg_select == "2":
                 width = input("\nChange width: ")
-                if(~width.isdigit()):
+                if(not width.isdigit()):
                     print("올바른 값을 입력하지 않았습니다. 처음으로 돌아갑니다.")
                 else:
                     config.set_data("capture_config", "width", int(width))
@@ -83,7 +83,7 @@ if __name__ == "__main__":
 
             elif cfg_select == "3":
                 height = input("\nChange height: ")
-                if(~height.isdigit()):
+                if(not height.isdigit()):
                     print("올바른 값을 입력하지 않았습니다. 처음으로 돌아갑니다.")
                 else:
                     config.set_data("capture_config", "height", int(height))
