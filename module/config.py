@@ -24,4 +24,4 @@ class block_config:
         with open(self.json_src, "r+") as json_file:
             json_data = json.load(json_file)
             json_data[key1][key2] = value
-            json.dump(json_data)
+            json.dump(json_data, json_file, indent=4)
