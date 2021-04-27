@@ -18,7 +18,8 @@ if __name__ == "__main__":
         print("📖 Select Memu")
         print("1. 👆 Click Start Button")
         print("2. 🔄 Change Block Name")
-        print("3. 🖐 Exit")
+        print("3. 🛠 config")
+        print("4. 🖐 Exit")
         select = input("Select: ")
         print("\n")
 
@@ -58,8 +59,40 @@ if __name__ == "__main__":
             block_name = input("Enter Block Name: ")
             config_data["capture_config"]["block_name"] = block_name
             print("🔄 Change Block: {}\n".format(block_name))
+        
+        # 촬영 옵션 변경
+        elif select == "3":
+            print("1. 📂 capture folder")
+            print("2. ↔ width")
+            print("3. ↕ height")
+            print("4. back to menu")
+            cfg_select = input("Select: ")
+
+            if cfg_select == "1":
+                folder_name = input("\nCapture folder name: ")
+                config.set_data("capture_config", "root_folder", folder_name)
+                print("Change folder name: {}".format(folder_name))
+
+            elif cfg_select == "2":
+                width = input("Change width")
+                if(~width.isdigit):
+                    print("올바른 값을 입력하지 않았습니다. 처음으로 돌아갑니다.")
+                else:
+                    config.set_data("capture_config", "width", int(width))
+                    print("Change width: {}".format(int(width)))
+
+            elif cfg_select == "3":
+                height = input("Change height")
+                if(~height.isdigit):
+                    print("올바른 값을 입력하지 않았습니다. 처음으로 돌아갑니다.")
+                else:
+                    config.set_data("capture_config", "height", int(height))
+                    print("Change height: {}".format(int(height)))
+
+            elif cfg_select == "4":
+                pass
 
         # 종료
-        elif select == "3":
+        elif select == "4":
             print("🖐 Good Bye!!\n")
             exit()
