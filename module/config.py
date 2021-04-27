@@ -21,7 +21,7 @@ class block_config:
             return json_data
 
     def set_data(self, key1, key2, value):
-        with open(self.json_src, "w") as json_file:
+        with open(self.json_src, "r+") as json_file:
             json_data = json.load(json_file)
             json_data[key1][key2] = value
             json.dump(json_data)
