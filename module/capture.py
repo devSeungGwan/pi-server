@@ -7,7 +7,7 @@ from pprint import pprint
 
 def camera_capture(config: dict, ser) -> str:
     camera = picamera.PiCamera(
-        resoltion=(config["width"],config["height"]),  # (64, 64) ~ (2592, 1944) px
+        resolution=(config["width"],config["height"])  # (64, 64) ~ (2592, 1944) px
     )
 
     camera.shutter_speed = config["shutter_speed"],
