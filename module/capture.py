@@ -10,8 +10,8 @@ def camera_capture(config: dict, ser) -> str:
         resolution=(config["width"],config["height"])  # (64, 64) ~ (2592, 1944) px
     )
 
-    camera.shutter_speed = config["shutter_speed"],
-    camera.iso = config["iso"],
+    # camera.shutter_speed = config["shutter_speed"]
+    # camera.iso = config["iso"]
     camera.exposure_mode=config["exposure_mode"]
     camera.awb_mode = config["awb_mode"]
 
