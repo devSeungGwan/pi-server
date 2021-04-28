@@ -65,10 +65,7 @@ if __name__ == "__main__":
             print("1. 📂 capture folder")
             print("2. ↔ width")
             print("3. ↕ height")
-            print("4. auto exposure")
-            print("5. iso")
-            print("6. shutter speed")
-            print("7. back to menu")
+            print("4. back to menu")
             cfg_select = input("Select: ")
 
             if cfg_select == "1":
@@ -92,33 +89,6 @@ if __name__ == "__main__":
                     config.set_data("capture_config", "height", int(height))
                     print("Change height: {}\n".format(int(height)))
             elif cfg_select == "4":
-                expo_mode = input("1. ON, 2. OFF")
-                if expo_mode == "1":
-                    config.set_data("capture_config", "auto_exposure", "on")
-                    print("change auto exposure: ON\n")
-                elif expo_mode == "2":
-                    config.set_data("capture_config", "auto_exposure", "off")
-                    print("change auto exposure: OFF\n")
-                else:
-                    print("올바른 값을 입력하지 않았습니다. 처음으로 돌아갑니다.\n")
-
-            elif cfg_select == "5":
-                iso = input("\nChange iso: ")
-                if(not iso.isdigit()):
-                    print("올바른 값을 입력하지 않았습니다. 처음으로 돌아갑니다.\n")
-                else:
-                    config.set_data("capture_config", "iso", int(iso))
-                    print("Change iso: {}\n".format(int(iso)))
-
-            elif cfg_select == "6":
-                shutter_speed = input("\nChange shutter speed: ")
-                if(not shutter_speed.isdigit()):
-                    print("올바른 값을 입력하지 않았습니다. 처음으로 돌아갑니다.\n")
-                else:
-                    config.set_data("capture_config", "shutter_speed", int(shutter_speed))
-                    print("Change shutter speed: {}\n".format(int(shutter_speed)))
-
-            elif cfg_select == "7":
                 print("\n")
 
         # 종료

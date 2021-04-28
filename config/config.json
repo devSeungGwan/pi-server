@@ -8,7 +8,8 @@
         "height": 720,
         "shutter_speed": 6000000,
         "iso": 800,
-        "auto_exposure": "off"
+        "awb_mode": "shade",
+        "exposure_mode": "anti_shake"
     },
     "serial_config":
     {

@@ -8,10 +8,12 @@ from pprint import pprint
 def camera_capture(config: dict, ser) -> str:
     camera = picamera.PiCamera(
         resoltion=(config["width"],config["height"]),  # (64, 64) ~ (2592, 1944) px
-        shutter_speed = config["shutter_speed"],
-        iso = config["iso"],
-        exposure_mode=config["exposure_mode"]
     )
+
+    camera.shutter_speed = config["shutter_speed"],
+    camera.iso = config["iso"],
+    camera.exposure_mode=config["exposure_mode"]
+    camera.awb_mode = config["awb_mode"]
 
     capture_log = dict()
     capture_log["capture_config"] = config
