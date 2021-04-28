@@ -4,8 +4,11 @@
         "block_name": "",
         "root_folder": "./capture",
         "capture_folder": "",
-        "width": 800,
-        "height": 800
+        "width": 1280,
+        "height": 720,
+        "shutter_speed": 6000000,
+        "iso": 800,
+        "auto_exposure": "off"
     },
     "serial_config":
     {
